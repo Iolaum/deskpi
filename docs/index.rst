@@ -1,5 +1,5 @@
 Welcome to DeskPi drivers's documentation!
-======================================
+==========================================
 
 .. toctree::
    :maxdepth: 2

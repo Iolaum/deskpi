@@ -3,10 +3,12 @@ DeskPi drivers
 ==============
 
 
+.. image:: https://github.com/Iolaum/deskpi/workflows/CI/badge.svg
+        :target: https://github.com/Iolaum/deskpi/actions
+
 .. image:: https://readthedocs.org/projects/deskpi/badge/?version=latest
         :target: https://deskpi.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
-
 
 .. image:: https://pyup.io/repos/github/Iolaum/deskpi/shield.svg
      :target: https://pyup.io/repos/github/Iolaum/deskpi/

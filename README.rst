@@ -3,12 +3,6 @@ DeskPi drivers
 ==============
 
 
-.. image:: https://img.shields.io/pypi/v/deskpi.svg
-        :target: https://pypi.python.org/pypi/deskpi
-
-.. image:: https://img.shields.io/travis/Iolaum/deskpi.svg
-        :target: https://travis-ci.com/Iolaum/deskpi
-
 .. image:: https://readthedocs.org/projects/deskpi/badge/?version=latest
         :target: https://deskpi.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
@@ -20,11 +14,12 @@ DeskPi drivers
 
 
 
-Drivers for using the DeskPi raspberry pi 4 case with Fedora
+Drivers for using the DeskPi Pro Raspberry Pi 4B case with Fedora
 
 
 * Free software: GNU General Public License v3
-* Documentation: https://deskpi.readthedocs.io.
+* Documentation: `Read The Docs`_
+
 
 
 Features
@@ -37,9 +32,10 @@ Credits
 
 This package has used source code from `code provided by the DeskPi Team`_.
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was initialized with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 .. _`code provided by the DeskPi Team`: https://github.com/DeskPi-Team/deskpi
+.. _`Read The Docs`: https://deskpi.readthedocs.io.
 

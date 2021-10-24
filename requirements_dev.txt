@@ -6,7 +6,6 @@ flake8
 coverage
 Sphinx
 twine
-pytes
 black
 check-manifest
 pytest

@@ -1,0 +1,5 @@
+ignored:
+  - DL3013 # Pin versions in pip. Instead of `pip install <package>` use `pip install <package>==<version>`
+  - DL3040 # warning: `dnf clean all` missing after dnf command.
+  - DL3041 # warning: Specify version with `dnf install -y <package>-<version>`.
+  - DL3059 # info: Multiple consecutive `RUN` instructions. Consider consolidation.

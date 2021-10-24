@@ -1,0 +1,9 @@
+name: 'deskpi-image'
+description: 'Fedora DeskPi Container Testing Image'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'award'
+  color: 'green'

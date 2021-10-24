@@ -53,9 +53,10 @@ code: ## code quality checks
 	flake8 deskpi tests
 	mypy deskpi tests
 	check-manifest
-	# yamllint action.yml
-	# yamllint .github/workflows
+	yamllint action.yml
+	yamllint .github/workflows
 	doc8 docs
+	hadolint Dockerfile
 
 test: ## run tests quickly with the default Python
 	make clean

@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  fcust_ci_job:
+    runs-on: ubuntu-latest
+    name: DeskPi CI Job
+    steps:
+      - name: deskpi-container-ci
+        id: deskpi_ci_step1
+        uses: Iolaum/deskpi@main

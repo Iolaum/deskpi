@@ -3,6 +3,10 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+from pathlib import PurePath
+# Needs pip>=20
+from pip._internal.network.session import PipSession
+from pip._internal.req import parse_requirements
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -10,23 +14,32 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', ]
-
-test_requirements = ['pytest>=3', ]
+# adapted from:
+# https://stackoverflow.com/a/57191701, https://stackoverflow.com/a/59969843
+# https://alexanderwaldin.github.io/packaging-python-project.html
+requirements0 = parse_requirements(
+    str(PurePath.joinpath(PurePath(__file__).parent, "requirements.txt")),
+    session=PipSession(),
+)
+requirements = [str(requirement.requirement) for requirement in requirements0]
+requirements0 = parse_requirements(
+    str(PurePath.joinpath(PurePath(__file__).parent, "requirements_dev.txt")),
+    session=PipSession(),
+)
+dev_requirements = [str(requirement.requirement) for requirement in requirements0]
+del requirements0
 
 setup(
     author="Nikolaos Perrakis",
     author_email='nikperrakis@gmail.com',
-    python_requires='>=3.6',
+    python_requires='>=3.9',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     description="Drivers for using the DeskPi raspberry pi 4 case with Fedora",
     entry_points={
@@ -41,8 +54,9 @@ setup(
     keywords='deskpi',
     name='deskpi',
     packages=find_packages(include=['deskpi', 'deskpi.*']),
+    setup_requires=dev_requirements,
     test_suite='tests',
-    tests_require=test_requirements,
+    tests_require=dev_requirements,
     url='https://github.com/Iolaum/deskpi',
     version='0.0.1',
     zip_safe=False,

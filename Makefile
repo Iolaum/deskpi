@@ -5,8 +5,9 @@ define BROWSER_PYSCRIPT
 import os, webbrowser, sys
 
 from urllib.request import pathname2url
-
-webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
+# Disable webbrowser popup temporarily due to flatpak errors.
+# webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
+print(pathname2url(os.path.abspath(sys.argv[1])))
 endef
 export BROWSER_PYSCRIPT
 
@@ -47,18 +48,18 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
-lint/flake8: ## check style with flake8
+code: ## code quality checks
+	black deskpi tests
 	flake8 deskpi tests
-lint/black: ## check style with black
-	black --check deskpi tests
-
-lint: lint/flake8 lint/black ## check style
+	mypy deskpi tests
+	check-manifest
+	# yamllint action.yml
+	# yamllint .github/workflows
+	doc8 docs
 
 test: ## run tests quickly with the default Python
+	make clean
 	pytest
-
-test-all: ## run tests on every Python version with tox
-	tox
 
 coverage: ## check code coverage quickly with the default Python
 	coverage run --source deskpi -m pytest
